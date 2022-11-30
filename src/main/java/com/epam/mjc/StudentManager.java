@@ -10,7 +10,7 @@ public class StudentManager {
   public Student find(long studentID)throws StudentNotFoundException {
     for (int i = 0; i < IDs.length; i++) {
       if(Arrays.binarySearch(IDs,studentID) >= 0){
-
+        System.out.println("aaaaa");
       }
       else {
         throw new StudentNotFoundException("Could not find student with ID " + studentID);
@@ -23,8 +23,8 @@ public class StudentManager {
   public static void main(String[] args) {
     StudentManager manager = new StudentManager();
 
-    for (int i = 0; i < IDs.length; i++) {
-      Student student = manager.find(IDs[i]);
+    for (long id : IDs) {
+      Student student = manager.find(id);
       System.out.println("Student name " + student.getName());
     }
 
